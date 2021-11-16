@@ -119,7 +119,7 @@ export class UserRegistrationService {
       catchError(this.handleError)
     );
   }
-
+  
   /**
   * calls the /directors/:name endpoint
   * get info about a movie's director
