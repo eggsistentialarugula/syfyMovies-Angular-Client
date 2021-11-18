@@ -11,7 +11,6 @@ import { map } from 'rxjs/operators';
 //declaring api url that'll provide data for the client app
 const apiUrl = 'https://mysyfymovies.herokuapp.com/';
 
-// injectable decorator function tells Angular that this service will be available anywhere (hence the root)
 @Injectable({
   providedIn: 'root',
 })
@@ -129,12 +128,12 @@ export class UserRegistrationService {
   getGenre(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + `genres/:Name`, {
+      .get(apiUrl + 'genre/:name', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   /**
@@ -152,9 +151,7 @@ export class UserRegistrationService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  /**
-   * Non-typed response extraction
-   */
+  //non-typed response extraction
   private extractResponseData(res: Response): any {
     const body = res;
     return body || {};
