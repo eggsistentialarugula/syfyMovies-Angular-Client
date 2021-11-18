@@ -113,12 +113,12 @@ export class UserRegistrationService {
   deleteFavMovie(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .delete(apiUrl + `users/:Username/Movies/:MovieID`, {
+      .delete(apiUrl + 'users/:Username/Movies/:MovieID', {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   /**
