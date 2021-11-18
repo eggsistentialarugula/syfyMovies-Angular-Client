@@ -143,12 +143,12 @@ export class UserRegistrationService {
   getDirector(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + `directors/:Name`, {
+      .get(apiUrl + 'directors/:Name', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   //non-typed response extraction
