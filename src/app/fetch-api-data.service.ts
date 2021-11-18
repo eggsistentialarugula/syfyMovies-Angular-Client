@@ -152,7 +152,7 @@ export class UserRegistrationService {
   }
 
   //non-typed response extraction
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: any): any {
     const body = res;
     return body || {};
   }
