@@ -99,7 +99,7 @@ export class UserRegistrationService {
   }
 
   //add fav movie
-  addFavMovies(): Obervable<any> {
+  addFavMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
       .post(apiUrl + `users/:Username/Movies/:MovieID`, {
@@ -111,7 +111,7 @@ export class UserRegistrationService {
   }
 
   // delete fav movie
-  deleteFavMovie(): Obervable<any> {
+  deleteFavMovie(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
       .delete(apiUrl + `users/:Username/Movies/:MovieID`, {
