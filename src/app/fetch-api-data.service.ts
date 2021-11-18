@@ -89,24 +89,24 @@ export class UserRegistrationService {
   getSingleMovie(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + `movies/:Title`, {
+      .get(apiUrl + 'movies/:Title', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   //add fav movie
   addFavMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .post(apiUrl + `users/:Username/Movies/:MovieID`, {
+      .post(apiUrl + 'users/:Username/Movies/:MovieID', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   // delete fav movie
