@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-// this import is for closing the doalog on success
+// this import is for closing the dialog on success
 import { MatDialogRef } from '@angular/material/dialog'
 
 //this import is bringing in the API calls created in fetch-api-data.service.ts
@@ -25,6 +25,21 @@ export class UserRegistrationFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  //function responsible for sending the form inputs to the backend
+  registerUser(): void {
+    this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
+  // Logic for a successful user registration (To be implemented)
+     this.dialogRef.close(); // This will close the modal on success
+     this.snackBar.open(result, 'OK', {
+        duration: 2000
+     });
+    }, (result) => {
+      this.snackBar.open(result, 'OK', {
+        duration: 2000
+      });
+    });
   }
 
 }
