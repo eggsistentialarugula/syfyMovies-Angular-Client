@@ -1,11 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 // this import is for closing the dialog on success
 import { MatDialogRef } from '@angular/material/dialog'
-
 //this import is bringing in the API calls created in fetch-api-data.service.ts
 import { UserRegistrationService } from '../fetch-api-data.service';
-
 //this import is used to display notifs back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 
